@@ -1,49 +1,76 @@
+
 # 🏥 Clinic Appointment Scheduling System
 
-A C-based console application designed to manage patient registration, doctor information, and clinic appointments in a simple and organized way.
+A C-based application designed to manage clinic appointments, patient registration, and doctor availability using file handling.
 
 ---
 
 ## 📌 Project Overview
 
-The Clinic Appointment Scheduling System is an academic project developed using the C programming language. It helps clinic staff manage patient records, book appointments, view appointment schedules, search patient information, and cancel appointments.
+The Clinic Appointment Scheduling System is a menu-driven application developed using the C programming language. It helps administrators manage doctor schedules and patient records while allowing patients to view available time slots and book appointments.
 
-The system uses file handling to store patient and appointment records locally, so the data can be loaded again when the program restarts.
+The system uses file handling to store information locally and automatically updates appointment availability to prevent double bookings.
 
 ---
 
-## 🎯 Project Objectives
+## 🎯 Objectives
 
 - Simplify clinic appointment scheduling.
-- Maintain organized patient records.
-- Display doctor information and consultation fees.
-- Prevent double-booking of the same doctor at the same date and time.
-- Store and retrieve records using file handling.
-- Apply C programming concepts to a real-world problem.
+- Maintain patient registration records.
+- Manage doctor schedules and available time slots.
+- Provide separate administrative and patient interfaces.
+- Prevent duplicate bookings through automatic slot updates.
+- Store and retrieve records using C file handling.
 
 ---
 
 ## 🚀 Key Features
 
-- **Patient Registration:** Register patients with unique IDs, names, ages, and phone numbers.
-- **Doctor Information:** View doctor IDs, names, departments, and consultation fees.
-- **Appointment Booking:** Schedule appointments for registered patients.
-- **Conflict Detection:** Prevent double-booking of a doctor at the same date and time.
-- **View Appointments:** Display all appointment records and their status.
-- **Patient Search:** Search patient details and appointment history using a patient ID.
-- **Appointment Cancellation:** Cancel an existing appointment using its appointment ID.
-- **File Handling:** Save and load patient and appointment records using text files.
-- **Input Validation:** Validate basic patient information and date and time formats.
+- **Administrative Module:** Manage doctor schedules, time slots, and patient registration.
+- **Patient Registration:** Register patients and maintain their information.
+- **Doctor Availability:** Display doctors and their available appointment slots.
+- **Appointment Scheduling:** Allow patients to select a doctor and book an available time slot.
+- **Double Booking Prevention:** Prevent multiple patients from booking the same doctor's time slot.
+- **Automatic Slot Updates:** Mark booked slots as unavailable and restore availability when an appointment is cancelled.
+- **Appointment Management:** View, search, and cancel appointment records.
+- **File Handling:** Save patient, doctor schedule, and appointment information in local files.
 
 ---
 
 ## 🛠️ Tech Stack & Tools
 
-- **Language:** C (C99 or higher)
+- **Programming Language:** C (C99 or higher)
 - **Compiler:** GCC / MinGW
 - **IDE:** Code::Blocks
 - **Storage:** C File Handling
+- **File Operations:** `fopen()`, `fprintf()`, `fgets()`, `fscanf()`, `fclose()`
 - **Version Control:** Git and GitHub
+
+---
+
+## 👨‍💼 Administrative Module
+
+The administrator can:
+
+1. View and manage doctor information.
+2. Set doctor availability and working schedules.
+3. Create and manage appointment time slots.
+4. Register patients.
+5. View and manage appointment records.
+6. Monitor booked and available slots.
+
+---
+
+## 🧑‍⚕️ Patient Interface
+
+Patients can:
+
+1. Register their information.
+2. View available doctors.
+3. Check available appointment dates and times.
+4. Book an available appointment.
+5. Search their appointment details.
+6. Cancel an existing appointment.
 
 ---
 
@@ -55,40 +82,24 @@ ClinicAppointmentSystem/
 ├── main.c
 ├── README.md
 ├── patients.txt
+├── doctors.txt
+├── schedules.txt
 └── appointments.txt
 ```
 
-- `main.c` — Main C source code.
-- `README.md` — Project documentation.
-- `patients.txt` — Stores patient records.
-- `appointments.txt` — Stores appointment records.
-
-*Note: The text files are generated automatically when records are saved.*
+*Note: The data files can be created automatically by the program when records are saved.*
 
 ---
 
-## 📋 Main Menu
-
-1. Register New Patient
-2. View Doctor List
-3. Book Appointment
-4. View All Appointments
-5. Search Patient Appointments
-6. Cancel Appointment
-0. Exit
-
----
-
-## ⚙️ How to Run the Project
+## ⚙️ How to Run
 
 ### Using Code::Blocks
 
 1. Install Code::Blocks with a C compiler.
 2. Create a C Console Application.
-3. Copy the source code into `main.c`.
-4. Save the project.
-5. Click **Build and Run** or press `F9`.
-6. Follow the instructions displayed in the console.
+3. Add the project source code to `main.c`.
+4. Build and run the program by pressing `F9`.
+5. Follow the menu instructions.
 
 ### Using GCC
 
@@ -112,64 +123,55 @@ Run on Linux or macOS:
 
 ---
 
-## 💡 C Programming Concepts Used
+## 💡 C Programming Concepts
 
 - Structures
 - Arrays
 - Functions
 - Pointers
-- Loops
 - Conditional Statements
+- Loops
 - String Handling
 - File Handling
 
 ---
 
-## ✅ Advantages
+## 🔒 Double Booking Prevention
 
-- Reduces manual record-keeping.
-- Organizes patient and appointment information.
-- Makes appointment searching easier.
-- Helps prevent scheduling conflicts.
-- Provides practical experience with C programming.
+Before confirming an appointment, the system checks whether the selected doctor's time slot is already booked.
 
----
-
-## ⚠️ Limitations
-
-- Console-based user interface.
-- Uses local text files instead of a database.
-- No login or authentication system.
-- Does not validate every calendar rule or prevent past-date bookings.
-- Designed for educational purposes, not production medical use.
+- If the slot is available, the appointment is confirmed.
+- If the slot is already booked, the system rejects the request.
+- After successful booking, the slot is marked as unavailable.
+- When an appointment is cancelled, the slot can become available again.
 
 ---
 
 ## 🔮 Future Improvements
 
 - Integrate a MySQL database.
-- Add administrator login functionality.
-- Manage doctor availability and clinic working hours.
+- Add secure administrator and patient login.
 - Add appointment reminders.
-- Develop a graphical user interface.
 - Generate daily and monthly reports.
+- Develop a graphical user interface.
+- Improve date validation and doctor availability management.
 
 ---
 
 ## 👥 Team Information
 
 - **Project Name:** Clinic Appointment Scheduling System
-- **Programming Language:** C
+- **Language:** C
 - **Project Type:** Academic Project
 - **Team Name:** [NOVA CORE]
 
 ### Collaborators
 
-- [Sifa Akter] — Team Leader
-- [Zannatul Mowya Iramoni] — Team Member
-- [Shah Tasnim Abid] — Team Member
-- [MD Rakibul Islam] — Team Member
-- [Shorna Islam] — Team Member
+- [Sifa akter]
+- [Zannatul Mowya Iramoni]
+- [Shah Tasnim Abid]
+- [Md Rakibul Islam]
+- [Shorna Islam]
 
 ### Project Supervisor
 
@@ -180,10 +182,9 @@ Run on Linux or macOS:
 
 ## 🏁 Conclusion
 
-The Clinic Appointment Scheduling System demonstrates how C programming can be used to solve a practical problem in clinic management. It provides basic patient registration, doctor information, appointment booking, searching, cancellation, and file-based record management.
-
-This project helps students understand structured programming, data management, file handling, and problem-solving.
+The Clinic Appointment Scheduling System provides an organized approach to managing patient registration, doctor schedules, and clinic appointments. By using C programming and file handling, the project demonstrates how a computerized system can reduce manual work and prevent appointment scheduling conflicts.
 
 ---
 
 **Developed as an academic project using C programming.**
+
